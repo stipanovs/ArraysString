@@ -12,12 +12,13 @@ namespace ArraysString
         static void Main(string[] args)
         {
             
-            int[] arr = {5, -8, 8, 9, 11, -11, 40, 43};
+            int[] arr = {5, 0, 8, 9, 11, 0, 40, 43};
             //int[] arr = { 5, 8, 9, 9, 9, 10, 11, 40, 43 };
             //DeleteEven(ref arr);
             //InsertElemBeginDigit(ref arr, 777, 11);
             //DeleteRepeatElem(ref arr);
-            InsertElemPairs(ref arr, 5555);
+            //InsertElemPairs(ref arr, 5555);
+            DeleteZeroElem(ref arr);
             PrintArray(arr);
             Console.ReadKey();
         }
@@ -110,6 +111,25 @@ namespace ArraysString
                 }
             }
         }
+
+        // 5
+
+        public static void DeleteZeroElem(ref int[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == 0)
+                {
+                    for (int a = i; a < arr.Length - 1; a++)
+                    {
+                        arr[a] = arr[a + 1];
+                    }
+                    Array.Resize(ref arr, arr.Length - 1);
+                }
+            }
+        }
+
+
 
     }
 }
