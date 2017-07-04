@@ -10,5 +10,6 @@ namespace ArraysString
     {
         public int MyProperty { get; set; }
         private string _name;
+        //aici a fost SERII
     }
 }
