@@ -9,5 +9,6 @@ namespace ArraysString
     public class StringCS
     {
         public int MyProperty { get; set; }
+        private string _name;
     }
 }
