@@ -11,12 +11,12 @@ namespace ArraysString
     {
         static void Main(string[] args)
         {
-            // 1
+            
             int[] arr = {5, 8, 9, 10, 11, 40, 43};
             //DeleteEven(ref arr);
-            InsertElemBeginDigit(ref arr, 333, 9);
+            InsertElemBeginDigit(ref arr, 777, 11);
             PrintArray(arr);
-            // 2
+            
             
 
             
@@ -57,25 +57,40 @@ namespace ArraysString
                 if (arr[i] == digit)
                 {
                     Array.Resize(ref arr, arr.Length + 1);
-
-                    for (int a = i; a < arr.Length-1; a++)
+                    
+                    for (int j = arr.Length-1 ; j > i+1; j--)
                     {
-                        arr[a + 1] = arr[a];
+                        arr[j] = arr[j-1];
 
                     }
-                    PrintArray(arr);
-                    //arr[i + 1] = elem;
+                    arr[i+1] = elem;
                   
                 }
-                i++;
-
             }
         }
 
         // 3
         public static void DeleteRepeatElem(ref int[] arr)
         {
-            
+            int find = arr[0];
+            bool first = false;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == find & !first)
+                {
+                    first = true;
+                }
+                else if(arr[i] == find & first)
+                { 
+                    for (int a = i; a < arr.Length - 1; a++)
+                    {
+                        arr[a] = arr[a + 1];
+
+                    }
+                    Array.Resize(ref arr, arr.Length - 1);
+                }
+            }
+
         }
     }
 }
