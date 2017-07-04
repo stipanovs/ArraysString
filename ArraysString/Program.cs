@@ -12,13 +12,14 @@ namespace ArraysString
         static void Main(string[] args)
         {
             
-            int[] arr = {5, 0, 8, 9, 11, 0, 40, 43};
+            int[] arr = {55, 0, 8, 9, 11, 45, 40, 13};
             //int[] arr = { 5, 8, 9, 9, 9, 10, 11, 40, 43 };
             //DeleteEven(ref arr);
-            //InsertElemBeginDigit(ref arr, 777, 11);
+            InsertElemBeginDigit(ref arr, 777, 1);
             //DeleteRepeatElem(ref arr);
             //InsertElemPairs(ref arr, 5555);
-            DeleteZeroElem(ref arr);
+            //DeleteZeroElem(ref arr);
+            
             PrintArray(arr);
             Console.ReadKey();
         }
@@ -53,7 +54,7 @@ namespace ArraysString
         {
             for (int i = 0; i < arr.Length; i++)
             {
-                if (arr[i] == digit)
+                if (arr[i].ToString()[0] == digit.ToString()[0])
                 {
                     Array.Resize(ref arr, arr.Length + 1);
                     
