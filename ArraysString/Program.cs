@@ -15,12 +15,17 @@ namespace ArraysString
             int[] arr = {55, 0, 8, 9, 11, 45, 40, 13};
             //int[] arr = { 5, 8, 9, 9, 9, 10, 11, 40, 43 };
             //DeleteEven(ref arr);
-            InsertElemBeginDigit(ref arr, 777, 1);
+            //InsertElemBeginDigit(ref arr, 777, 1);
             //DeleteRepeatElem(ref arr);
             //InsertElemPairs(ref arr, 5555);
             //DeleteZeroElem(ref arr);
             
-            PrintArray(arr);
+            //PrintArray(arr);
+            int[,] arr2Dimens = new int[,] { { 4, 1 }, { 6, 9 }, {5, 1} };
+            TwoDimArr arr2D = new TwoDimArr();
+            arr2D.PrintArr(arr2Dimens);
+
+
             Console.ReadKey();
         }
         
