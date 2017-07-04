@@ -12,14 +12,12 @@ namespace ArraysString
         static void Main(string[] args)
         {
             
-            int[] arr = {5, 8, 9, 10, 11, 40, 43};
+            //int[] arr = {5, 8, 9, 10, 11, 40, 43};
+            int[] arr = { 5, 8, 9, 9, 9, 10, 11, 40, 43 };
             //DeleteEven(ref arr);
-            InsertElemBeginDigit(ref arr, 777, 11);
+            //InsertElemBeginDigit(ref arr, 777, 11);
+            DeleteRepeatElem(ref arr);
             PrintArray(arr);
-            
-            
-
-            
             Console.ReadKey();
         }
         
@@ -64,7 +62,6 @@ namespace ArraysString
 
                     }
                     arr[i+1] = elem;
-                  
                 }
             }
         }
@@ -72,25 +69,28 @@ namespace ArraysString
         // 3
         public static void DeleteRepeatElem(ref int[] arr)
         {
-            int find = arr[0];
-            bool first = false;
-            for (int i = 0; i < arr.Length; i++)
+            for (int j = 0; j < arr.Length; j++)
             {
-                if (arr[i] == find & !first)
-                {
-                    first = true;
-                }
-                else if(arr[i] == find & first)
-                { 
-                    for (int a = i; a < arr.Length - 1; a++)
-                    {
-                        arr[a] = arr[a + 1];
+                int find = arr[j];
+                bool first = false;
 
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    if (arr[i] == find & !first)
+                    {
+                        first = true;
                     }
-                    Array.Resize(ref arr, arr.Length - 1);
+                    else if (arr[i] == find & first)
+                    {
+                        for (int a = i; a < arr.Length - 1; a++)
+                        {
+                            arr[a] = arr[a + 1];
+                        }
+                        Array.Resize(ref arr, arr.Length - 1);
+                        i--;
+                    }
                 }
             }
-
         }
     }
 }
