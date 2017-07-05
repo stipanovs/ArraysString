@@ -72,11 +72,10 @@ namespace ArraysString
                     result[j, x] = result[j, x-1];
                 }
             }
-            // coloana compleatata cu 0
+            // coloana completata cu 0
             for (int i = 0; i < lastRow; i++)
             {
                 result[i, colIndex] = 0;
-         
             }
             
             return result;
@@ -118,7 +117,7 @@ namespace ArraysString
             return AddRowIndPos(arr, positionRow + 1, newLine);
 
         }
-
+        //p. 2.2
         public int[,] InsertColBefNum(int[,] arr, int number)
         {
             
@@ -141,7 +140,7 @@ namespace ArraysString
             return AddColIndPos(arr, positionCol);
 
         }
-
+        //p. 2.3
         public int[,] DeleteLinesConEvensElem(int[,] arr)
         {
 
@@ -150,7 +149,7 @@ namespace ArraysString
                 int RowNum = -1;
                 for (int i = 0; i < arr.GetLength(0); i++)
                 {
-                    string evensline = ""; //if contine F - not evens
+                    string evensline = ""; //if evensline contine F - line not evens
                     for (int j = 0; j < arr.GetLength(1); j++)
                     {
                         if (arr[i, j] % 2 == 0)
@@ -204,6 +203,39 @@ namespace ArraysString
 
             arr = result;
        
+        }
+
+        public void DeleteColIndPos(ref int[,] arr, int colIndex)
+        {
+            //   d
+            // 0 4,5,7,6
+            // 1 8,9,1,8
+            // 2 2,4,6,8  
+            // 3 3,8,9,7
+
+            int lastRow = arr.GetLength(0);
+            int lastColumn = arr.GetLength(1);
+            int[,] result = new int[lastRow, lastColumn - 1];
+
+            // Copy in new array
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                for (int x = 0; x < colIndex; x++)
+                {
+                    result[i, x] = arr[i, x];
+                }
+            }
+
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                for (int x = colIndex; x < lastColumn; x++)
+                {
+                    result[i, x] = arr[i, x + 1];
+                }
+            }
+
+            arr = result;
+
         }
 
 

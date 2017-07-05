@@ -11,7 +11,7 @@ namespace ArraysString
     {
         static void Main(string[] args)
         {
-            
+            /// p. 1
             int[] arr = {55, 0, 8, 9, 11, 45, 40, 13};
             //int[] arr = { 5, 8, 9, 9, 9, 10, 11, 40, 43 };
             //DeleteEven(ref arr);
@@ -19,11 +19,11 @@ namespace ArraysString
             //DeleteRepeatElem(ref arr);
             //InsertElemPairs(ref arr, 5555);
             //DeleteZeroElem(ref arr);
-
             //PrintArray(arr);
 
-            // p.2
+            /////// p.2
             // int[,] arr2D = new int[,] {{4, 0},{3, 6},{5, -8},{1, 0}}; // for 2.1
+
             int[,] arr2D = new int[,] {
                 {4, 7, 6},
                 {4, 6, 8},
