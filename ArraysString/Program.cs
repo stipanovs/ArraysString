@@ -21,9 +21,14 @@ namespace ArraysString
             //DeleteZeroElem(ref arr);
             
             //PrintArray(arr);
-            int[,] arr2Dimens = new int[,] { { 4, 1 }, { 6, 9 }, {5, 1} };
-            TwoDimArr arr2D = new TwoDimArr();
-            arr2D.PrintArr(arr2Dimens);
+            int[,] arr2D = new int[,] {{4, 0},{3, 9},{5, 0},{1, 8}};
+            
+            TwoDimArr arrDimMeth = new TwoDimArr();
+            arrDimMeth.PrintArr(arr2D);
+            WriteLine();
+            int[,] arr2 = arrDimMeth.InsertLineAfterMinElem(arr2D, new int[]{3,3});
+            arrDimMeth.PrintArr(arr2);
+            //arrDimMeth.InsertLineAfterMinElem(arr2D, 2);
 
 
             Console.ReadKey();
@@ -63,10 +68,9 @@ namespace ArraysString
                 {
                     Array.Resize(ref arr, arr.Length + 1);
                     
-                    for (int j = arr.Length-1 ; j > i+1; j--)
+                    for (int j = arr.Length-1 ; j>i+1; j--)
                     {
                         arr[j] = arr[j-1];
-
                     }
                     arr[i+1] = elem;
                 }
