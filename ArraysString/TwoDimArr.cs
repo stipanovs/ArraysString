@@ -149,7 +149,7 @@ namespace ArraysString
                 int RowNum = -1;
                 for (int i = 0; i < arr.GetLength(0); i++)
                 {
-                    string evensline = ""; //if evensline contine F - line not evens
+                    string evensline = ""; //if evensline contine "F" - line not evens
                     for (int j = 0; j < arr.GetLength(1); j++)
                     {
                         if (arr[i, j] % 2 == 0)
@@ -205,7 +205,7 @@ namespace ArraysString
        
         }
 
-        public void DeleteColIndPos(ref int[,] arr, int colIndex)
+        public void DeleteColInPos(ref int[,] arr, int colIndex)
         {
             //   d
             // 0 4,5,7,6
