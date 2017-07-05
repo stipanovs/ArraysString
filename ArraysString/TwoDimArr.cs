@@ -144,46 +144,45 @@ namespace ArraysString
 
         public int[,] DeleteLinesConEvensElem(int[,] arr)
         {
-            int count = 0;
-            int RowNum = -1;
-            for (int i = 0; i < arr.GetLength(0); i++)
-            {
-                string evensline = ""; //if contine F - not evens
-                for (int j = 0; j < arr.GetLength(1); j++)
-                {
-                    if (arr[i, j] % 2 == 0)
-                    {
-                        evensline += "T";
-                        count++;
-                    }
-                    else
-                    {
-                        evensline += "F";
-                    }
 
-                    if (!evensline.Contains("F"))
+            for (int n = 0; n < arr.GetLength(0); n++)
+            {
+                int RowNum = -1;
+                for (int i = 0; i < arr.GetLength(0); i++)
+                {
+                    string evensline = ""; //if contine F - not evens
+                    for (int j = 0; j < arr.GetLength(1); j++)
                     {
-                        RowNum = i;
+                        if (arr[i, j] % 2 == 0)
+                        {
+                            evensline += "T";
+                        }
+                        else
+                        {
+                            evensline += "F";
+                        }
+
+                        if (!evensline.Contains("F"))
+                        {
+                            RowNum = i;
+                        }
                     }
                 }
+                DeleteRowIndPos(ref arr, RowNum);
             }
 
-
-
-
-
-            return DeleteRowIndPos(arr, RowNum);
+            return arr;
         }
 
-        public int[,] DeleteRowIndPos(int[,] original, int rowIndex)
+        public void DeleteRowIndPos(ref int[,] arr, int rowIndex)
         {
             // 0 4,5,7,6
             // 1 8,9,1,8
             // 2 2,4,6,8 del 
             // 3 3,8,9,7
 
-            int lastRow = original.GetLength(0);
-            int lastColumn = original.GetLength(1);
+            int lastRow = arr.GetLength(0);
+            int lastColumn = arr.GetLength(1);
             int[,] result = new int[lastRow - 1, lastColumn];
 
             // Copy
@@ -191,7 +190,7 @@ namespace ArraysString
             {
                 for (int x = 0; x < lastColumn; x++)
                 {
-                    result[i, x] = original[i, x];
+                    result[i, x] = arr[i, x];
                 }
             }
 
@@ -199,12 +198,12 @@ namespace ArraysString
             {
                 for (int x = 0; x < lastColumn; x++)
                 {
-                    result[i, x] = original[i + 1, x];
+                    result[i, x] = arr[i + 1, x];
                 }
             }
-            
 
-            return result;
+            arr = result;
+       
         }
 
 
