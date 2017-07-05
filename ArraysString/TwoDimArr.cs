@@ -122,9 +122,8 @@ namespace ArraysString
         public int[,] InsertColBefNum(int[,] arr, int number)
         {
             
-            int positionCol = 1000;
-            //int[] positions = new int [arr.GetLength(1)];
-            // find min element
+            int positionCol = arr.GetLength(1);
+            // find number element
             for (int i = 0; i < arr.GetLength(0); i++)
             {
                 for (int j = 0; j < arr.GetLength(1); j++)
@@ -135,30 +134,77 @@ namespace ArraysString
                         {
                             positionCol = j;
                         }
-                        //positionCol = j;
                     }
                 }
             }
-            Console.WriteLine("positCol: {0}", positionCol);
-
-            //// find first occurence of the min
-            //bool find = false;
-            //for (int x = 0; x < arr.GetLength(0); x++)
-            //{
-            //    for (int j = 0; j < arr.GetLength(1); j++)
-            //    {
-            //        if (arr[x, j] == min & !find)
-            //        {
-            //            positionCol = x;
-            //            find = true;
-            //            break;
-            //        }
-            //    }
-
-            //}
-
+           
             return AddColIndPos(arr, positionCol);
 
+        }
+
+        public int[,] DeleteLinesConEvensElem(int[,] arr)
+        {
+            int count = 0;
+            int RowNum = -1;
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                string evensline = ""; //if contine F - not evens
+                for (int j = 0; j < arr.GetLength(1); j++)
+                {
+                    if (arr[i, j] % 2 == 0)
+                    {
+                        evensline += "T";
+                        count++;
+                    }
+                    else
+                    {
+                        evensline += "F";
+                    }
+
+                    if (!evensline.Contains("F"))
+                    {
+                        RowNum = i;
+                    }
+                }
+            }
+
+
+
+
+
+            return DeleteRowIndPos(arr, RowNum);
+        }
+
+        public int[,] DeleteRowIndPos(int[,] original, int rowIndex)
+        {
+            // 0 4,5,7,6
+            // 1 8,9,1,8
+            // 2 2,4,6,8 del 
+            // 3 3,8,9,7
+
+            int lastRow = original.GetLength(0);
+            int lastColumn = original.GetLength(1);
+            int[,] result = new int[lastRow - 1, lastColumn];
+
+            // Copy
+            for (int i = 0; i < rowIndex; i++)
+            {
+                for (int x = 0; x < lastColumn; x++)
+                {
+                    result[i, x] = original[i, x];
+                }
+            }
+
+            for (int i = rowIndex; i < result.GetLength(0); i++)
+            {
+                for (int x = 0; x < lastColumn; x++)
+                {
+                    result[i, x] = original[i + 1, x];
+                }
+            }
+            
+
+            return result;
         }
 
 

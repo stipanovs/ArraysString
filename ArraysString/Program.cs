@@ -21,17 +21,21 @@ namespace ArraysString
             //DeleteZeroElem(ref arr);
 
             //PrintArray(arr);
+
+            // p.2
             // int[,] arr2D = new int[,] {{4, 0},{3, 6},{5, -8},{1, 0}}; // for 2.1
             int[,] arr2D = new int[,] {
                 {4, 0, 5},
                 {3, 6, 7},
-                {8, 5, 4},
+                {8, 2, 4},
                 {1, 0, 9}}; // for 2.2
-
+           
             TwoDimArr arrDimMeth = new TwoDimArr();
             arrDimMeth.PrintArr(arr2D);
             WriteLine();
-            int[,] arr2 = arrDimMeth.InsertColBefNum(arr2D, 5);
+            //int[,] arr2 = arrDimMeth.InsertColBefNum(arr2D, 5);
+            //int[,] arr2 = arrDimMeth.DeleteLinesConEvensElem(arr2D);
+            int[,] arr2 = arrDimMeth.DeleteLinesConEvensElem(arr2D);
             arrDimMeth.PrintArr(arr2);
             //arrDimMeth.InsertLineAfterMinElem(arr2D, 2);
 
