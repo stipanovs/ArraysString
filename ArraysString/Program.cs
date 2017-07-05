@@ -21,7 +21,7 @@ namespace ArraysString
             //DeleteZeroElem(ref arr);
             
             //PrintArray(arr);
-            int[,] arr2D = new int[,] {{4, 0},{3, 9},{5, 0},{1, 8}};
+            int[,] arr2D = new int[,] {{4, 0},{3, 6},{5, -8},{1, 0}};
             
             TwoDimArr arrDimMeth = new TwoDimArr();
             arrDimMeth.PrintArr(arr2D);

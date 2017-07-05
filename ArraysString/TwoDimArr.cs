@@ -64,21 +64,25 @@ namespace ArraysString
                     }
                 }
             }
-            Console.WriteLine(min);
+            
             // find firt occurence of the min
-            for (int i = 0; i < arr.GetLength(0); i++)
+            bool find = false;
+            for (int x = 0; x < arr.GetLength(0); x++)
             {
+                
                 for (int j = 0; j < arr.GetLength(1); j++)
                 {
-                    if (arr[i, j] == min)
+                    if (arr[x, j] == min & !find)
                     {
-                        positionRow = i;
+                        positionRow = x;
+                        find = true;
                         break;
                     }
                 }
-                break;
+                
             }
-            Console.WriteLine(positionRow);
+            Console.WriteLine("min: {0}", min);
+            Console.WriteLine("position: {0}", positionRow);
 
             return AddRowIndPos(arr, positionRow + 1, newLine);
 
